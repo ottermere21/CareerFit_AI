@@ -16,16 +16,16 @@
 
 
 ## 2일차
-- [ ] Python 가상환경(venv) 생성 및 활성화 확인
-- [ ] requirements.txt 생성 및 패키지 설치 완료
-- [ ] .env 파일 생성 및 GEMINI_API_KEY 입력 완료
-- [ ] FastAPI /health 실행 확인 (localhost:8000/health)
-- [ ] FastAPI /docs 접속 확인 (localhost:8000/docs)
-- [ ] /jobs API 목업 응답 확인
-- [ ] /analyze API 기본 구조 작성 완료
+- [x] Python 가상환경(venv) 생성 및 활성화 확인
+- [x] requirements.txt 생성 및 패키지 설치 완료
+- [x] .env 파일 생성 및 GEMINI_API_KEY 입력 완료
+- [x] FastAPI /health 실행 확인 (localhost:8000/health)
+- [x] FastAPI /docs 접속 확인 (localhost:8000/docs)
+- [x] /jobs API 목업 응답 확인
+- [x] /analyze API 기본 구조 작성 완료
 - [ ] Gemini API 최초 응답 확인
 - [ ] README.md 골격 작성 완료
-- [ ] GitHub 커밋 완료 (.env 미포함 확인)
+- [x] GitHub 커밋 완료 (.env 미포함 확인)
 
 
 ## 3일차
