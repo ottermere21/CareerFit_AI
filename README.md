@@ -16,35 +16,79 @@
 | 실행 환경 | Docker |
 
 ## 로컬 실행 방법
-### 1. Backend Setup
+
+### 0. Git Clone
 ```bash
-# 활성화
+git clone https://github.com/ottermere21/CareerFit_AI.git
+cd CareerFit_AI
+```
+
+### 1. Backend Setup
+데이터 전처리 및 백엔드 구동을 위해 가상환경을 만들고 의존성 패키지를 먼저 설치해야 합니다.
+```bash
+# backend 디렉토리로 이동
 cd backend
-source venv/bin/activate
+
+# 가상환경 생성 및 활성화
+# MacOS
+python3 -m venv venv
+source venv/bin/activate  
+# Windows
+python -m venv venv
+venv\Scripts\activate
 
 # 의존성 패키지 설치
 pip install -r requirements.txt
 
 # 환경변수 설정
-cp .env.example .env 
-
-
-# 백엔드 서버 실행
-uvicorn main:app --reload --port 8000
-
-# 비활성화
-deactivate
+cp .env.example .env
 ```
-- API Docs: http://localhost:8000/docs 에서 Swagger 인터랙티브 문서 확인 가능
 
-Backend API Endpoint
+가상환경 사용을 끝마친 경우 비활성화
+```bash
+deactivate
+``` 
+
+### 2. Data Preprocessing
+의존성 설치가 끝난 가상환경 상태에서 전처리 스크립트를 실행해 SQLite DB(`careerfit.db`)를 생성합니다.
+
+```bash
+cd backend
+
+# MacOS
+python3 data/preprocess.py
+
+# Windows
+python data/preprocess.py
+```
+
+| 단계 | 도구 | 설명 |
+|---|---|---|
+| 1. 수집 | CSV | 강사 제공 목업 데이터 + 개인화 데이터 |
+| 2. 전처리 | Pandas | 결측치 제거, 중복 제거, 스킬 표준화 |
+| 3. 구조화 저장 | SQLite | 필터링·조회용 관계형 DB |
+| 4. 벡터 저장 | ChromaDB | 의미 기반 RAG 검색용 벡터 DB |
+
+### 3. Running the Server (백엔드 서버 실행)
+준비가 끝나면 로컬 개발 서버를 실행합니다.
+
+```bash
+cd backend
+uvicorn main:app --reload --port 8000
+```
+
+
+### API
+- API 문서: http://localhost:8000/docs
+
+API Endpoint
 | Method |	Endpoint |	Description |
-| GET |	/health	| 서버 상태 점검 (Health Check) |
-| GET |	/jobs |	공모전 및 추천 직무 목록 조회 |
-|POST |	/analyze |	이력서/포트폴리오 AI 분석 요청 |
+|---|---|---|
+| GET |	/health	| 서버 상태 확인 |
+| GET |	/jobs |	공모전·직무 목록 조회 |
+| POST |	/analyze |	분석 요청 |
 
 
--------
 
 ### Project Structure
 ```text
@@ -60,17 +104,9 @@ CareerFit_AI/
 ```
 
 
-### API
-- API 문서: http://localhost:8000/docs
-| 메소드 | 경로 | 설명 |
-| GET | /health | 서버 상태 확인 |
-| GET | /jobs | 공모전·직무 목록 조회 |
-| POST | /analyze | 분석 요청 |
-
-
 ## RoadMap
 - [x] 1일차: 프로젝트 기획 및 개발 환경 세팅
 - [x] 2일차: FastAPI 서버 구축 및 Gemini API 연결
-- [ ] 3일차: 데이터 파이프라인 구축
+- [x] 3일차: 데이터 파이프라인 구축
 - [ ] 4일차: RAG 기반 서비스 + React UI
 - [ ] 5일차: Docker + 포트폴리오 완성

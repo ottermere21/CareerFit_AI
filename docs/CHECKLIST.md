@@ -23,19 +23,19 @@
 - [x] FastAPI /docs 접속 확인 (localhost:8000/docs)
 - [x] /jobs API 목업 응답 확인
 - [x] /analyze API 기본 구조 작성 완료
-- [ ] Gemini API 최초 응답 확인
-- [ ] README.md 골격 작성 완료
+- [x] Gemini API 최초 응답 확인
+- [x] README.md 골격 작성 완료
 - [x] GitHub 커밋 완료 (.env 미포함 확인)
 
 
 ## 3일차
-- [ ] 강사 제공 CSV 데이터 확인 완료
-- [ ] Pandas로 CSV 읽기 성공
-- [ ] 결측치·중복 확인 완료
-- [ ] 스킬 키워드 표준화 완료
-- [ ] SQLite DB 생성 및 저장 확인
-- [ ] SQLite 조회 확인
-- [ ] RAG 문서 구조로 변환 완료
+- [x] 강사 제공 CSV 데이터 확인 완료
+- [x] Pandas로 CSV 읽기 성공
+- [x] 결측치·중복 확인 완료
+- [x] 스킬 키워드 표준화 완료
+- [x] SQLite DB 생성 및 저장 확인
+- [x] SQLite 조회 확인
+- [x] RAG 문서 구조로 변환 완료
 - [ ] ChromaDB 컬렉션 생성 및 문서 저장 확인
 - [ ] metadata 설계 완료
 - [ ] GitHub 커밋 완료
