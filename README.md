@@ -77,6 +77,20 @@ cd backend
 uvicorn main:app --reload --port 8000
 ```
 
+### 4. Frontend Setup
+```bash
+node -v   # 11버전 이상
+npm --vm  # 9버전 
+# 버전 없으면 설치 
+
+cd CareerFit_AI
+npm create vite@latest frontend -- --template react
+```
+
+
+
+
+
 
 ### API
 - API 문서: http://localhost:8000/docs

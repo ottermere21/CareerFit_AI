@@ -1,0 +1,278 @@
+[
+  {
+    "text": "테크스타트업A에서 데이터 분석가를 채용합니다. 필수 스킬은 Python, SQL, 통계입니다. 우대 스킬: R, Tableau, 시각화. 업무 내용: 사용자 행동 데이터를 분석해 비즈니스 인사이트를 도출합니다. A/B 테스트 설계 및 결과 해석 업무를 담당합니다.",
+    "metadata": {
+      "id": "1",
+      "company": "테크스타트업A",
+      "title": "데이터 분석가",
+      "job_type": "데이터 분석",
+      "deadline": "2026-08-31",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_1"
+  },
+  {
+    "text": "금융서비스B에서 데이터 엔지니어를 채용합니다. 필수 스킬은 Python, Spark, SQL입니다. 우대 스킬: Kafka, Airflow, AWS. 업무 내용: 대용량 금융 거래 데이터 파이프라인을 설계하고 운영합니다. ETL 프로세스 개발 및 데이터 품질 관리를 담당합니다.",
+    "metadata": {
+      "id": "2",
+      "company": "금융서비스B",
+      "title": "데이터 엔지니어",
+      "job_type": "데이터 엔지니어링",
+      "deadline": "2026-09-15",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_2"
+  },
+  {
+    "text": "AI솔루션C에서 머신러닝 엔지니어를 채용합니다. 필수 스킬은 Python, PyTorch, 딥러닝입니다. 우대 스킬: TensorFlow, CUDA, MLOps. 업무 내용: AI 모델 개발 및 서비스 배포를 담당합니다. 자연어 처리 및 컴퓨터 비전 프로젝트에 참여합니다.",
+    "metadata": {
+      "id": "3",
+      "company": "AI솔루션C",
+      "title": "머신러닝 엔지니어",
+      "job_type": "AI/ML",
+      "deadline": "2026-08-20",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_3"
+  },
+  {
+    "text": "커머스E에서 데이터 분석가를 채용합니다. 필수 스킬은 SQL, Python, 엑셀입니다. 우대 스킬: Looker, 통계분석, A/B테스트. 업무 내용: 이커머스 판매 및 고객 행동 데이터를 분석해 마케팅 전략 수립을 지원합니다.",
+    "metadata": {
+      "id": "5",
+      "company": "커머스E",
+      "title": "데이터 분석가",
+      "job_type": "데이터 분석",
+      "deadline": "2026-08-31",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_5"
+  },
+  {
+    "text": "헬스케어F에서 AI 연구원를 채용합니다. 필수 스킬은 Python, 머신러닝, 논문 작성입니다. 우대 스킬: NLP, 컴퓨터 비전, PyTorch. 업무 내용: 의료 데이터 기반 AI 모델을 연구·개발합니다. 논문 작성 및 학회 발표 경험자를 우대합니다.",
+    "metadata": {
+      "id": "6",
+      "company": "헬스케어F",
+      "title": "AI 연구원",
+      "job_type": "AI/ML",
+      "deadline": "2026-09-01",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_6"
+  },
+  {
+    "text": "컨설팅G에서 경영전략 컨설턴트를 채용합니다. 필수 스킬은 Excel, PowerPoint, 데이터분석입니다. 우대 스킬: MBA, SQL, Tableau. 업무 내용: 기업 전략 수립 및 운영 효율화 프로젝트를 수행합니다. 데이터 기반 의사결정을 지원합니다.",
+    "metadata": {
+      "id": "7",
+      "company": "컨설팅G",
+      "title": "경영전략 컨설턴트",
+      "job_type": "경영전략",
+      "deadline": "2026-10-15",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_7"
+  },
+  {
+    "text": "물류H에서 공급망 분석가를 채용합니다. 필수 스킬은 SQL, Python, 물류 도메인입니다. 우대 스킬: ERP, SCM, R. 업무 내용: 물류 네트워크 최적화 및 수요 예측 모델을 개발합니다. 물류·유통 도메인 이해 필수입니다.",
+    "metadata": {
+      "id": "8",
+      "company": "물류H",
+      "title": "공급망 분석가",
+      "job_type": "데이터 분석",
+      "deadline": "2026-08-15",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_8"
+  },
+  {
+    "text": "바이오J에서 생물정보학 연구원를 채용합니다. 필수 스킬은 R, Python, 바이오인포매틱스입니다. 우대 스킬: BLAST, NGS, 리눅스. 업무 내용: 유전체 데이터 분석 파이프라인을 개발합니다. 생물정보학 관련 석사 이상 우대합니다.",
+    "metadata": {
+      "id": "10",
+      "company": "바이오J",
+      "title": "생물정보학 연구원",
+      "job_type": "연구개발",
+      "deadline": "2026-08-31",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_10"
+  },
+  {
+    "text": "스타트업K에서 프론트엔드 개발자를 채용합니다. 필수 스킬은 JavaScript, React, HTML/CSS입니다. 우대 스킬: TypeScript, Next.js, Figma. 업무 내용: 사용자 경험 중심의 프론트엔드 서비스를 개발합니다. 디자인 협업 경험 우대.",
+    "metadata": {
+      "id": "11",
+      "company": "스타트업K",
+      "title": "프론트엔드 개발자",
+      "job_type": "프론트엔드 개발",
+      "deadline": "26.09.10",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_11"
+  },
+  {
+    "text": "금융L에서 리스크 분석가를 채용합니다. 필수 스킬은 Python, 통계, 금융공학입니다. 우대 스킬: VBA, Bloomberg, SQL. 업무 내용: 금융 리스크 모델을 개발하고 규제 보고서를 작성합니다. CFA 또는 FRM 자격증 우대.",
+    "metadata": {
+      "id": "12",
+      "company": "금융L",
+      "title": "리스크 분석가",
+      "job_type": "금융분석",
+      "deadline": "nan",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_12"
+  },
+  {
+    "text": "공기업M에서 데이터 사이언티스트를 채용합니다. 필수 스킬은 Python, SQL, 머신러닝입니다. 우대 스킬: 딥러닝, 시각화, NLP. 업무 내용: 공공 서비스 개선을 위한 데이터 분석 및 AI 모델을 개발합니다. 공공 데이터 활용 경험 우대.",
+    "metadata": {
+      "id": "13",
+      "company": "공기업M",
+      "title": "데이터 사이언티스트",
+      "job_type": "데이터 분석",
+      "deadline": "2026-10-31",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_13"
+  },
+  {
+    "text": "게임N에서 게임 데이터 분석가를 채용합니다. 필수 스킬은 SQL, Python, 게임 도메인입니다. 우대 스킬: R, 행동분석, A/B테스트. 업무 내용: 게임 유저 행동 데이터를 분석하고 게임 밸런싱 및 수익화 전략을 지원합니다.",
+    "metadata": {
+      "id": "14",
+      "company": "게임N",
+      "title": "게임 데이터 분석가",
+      "job_type": "데이터 분석",
+      "deadline": "2026-09-30",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_14"
+  },
+  {
+    "text": "캐럿컴퍼니에서 로컬 서비스 데이터 분석가를 채용합니다. 필수 스킬은 Python, SQL, Tableau입니다. 우대 스킬: A/B 테스트, GA4, BigQuery. 업무 내용: 지역 커뮤니티 피드 활성화 및 로컬 광고 성과 측정을 위한 유저 행동 데이터를 분석하고 핵심 대시보드를 구축합니다.",
+    "metadata": {
+      "id": "16",
+      "company": "캐럿컴퍼니",
+      "title": "로컬 서비스 데이터 분석가",
+      "job_type": "데이터 분석",
+      "deadline": "2026-10-31",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_16"
+  },
+  {
+    "text": "비바크리에이티브에서 핀테크 상품 데이터 분석가를 채용합니다. 필수 스킬은 SQL, Python, R입니다. 우대 스킬: 통계학, 머신러닝, Spark. 업무 내용: 결제 및 금융 거래 데이터를 바탕으로 고객 세그먼트를 분류하고 마케팅 효율 극대화 및 사기 탐지(FDS) 지표 고도화를 담당합니다.",
+    "metadata": {
+      "id": "17",
+      "company": "비바크리에이티브",
+      "title": "핀테크 상품 데이터 분석가",
+      "job_type": "데이터 분석",
+      "deadline": "2026-09-30",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_17"
+  },
+  {
+    "text": "엔제이소프트에서 게임 로그 분석가를 채용합니다. 필수 스킬은 Python, SQL, Pandas입니다. 우대 스킬: Hive, Looker, 이탈 예측 모델. 업무 내용: 신작 게임 유저들의 플레이 로그 데이터를 정제 및 분석하여 이탈 방지 모델을 수립하고 인게임 경제 밸런싱 패치를 지원합니다.",
+    "metadata": {
+      "id": "18",
+      "company": "엔제이소프트",
+      "title": "게임 로그 분석가",
+      "job_type": "데이터 분석",
+      "deadline": "2026-08-31",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_18"
+  },
+  {
+    "text": "메타네이퍼에서 Java 백엔드 개발자를 채용합니다. 필수 스킬은 Java, Spring Boot, JPA, SQL입니다. 우대 스킬: AWS, Docker, Linux, Git. 업무 내용: 글로벌 웹 서비스의 안정적인 백엔드 시스템을 구축합니다. 확장성 높은 데이터베이스 설계와 대용량 트래픽 처리를 담당합니다.",
+    "metadata": {
+      "id": "19",
+      "company": "메타네이퍼",
+      "title": "Java 백엔드 개발자",
+      "job_type": "백엔드 개발",
+      "deadline": "2026-11-30",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_19"
+  },
+  {
+    "text": "카카올라에서 React 프론트엔드 개발자를 채용합니다. 필수 스킬은 JavaScript, TypeScript, React입니다. 우대 스킬: Node.js, Git, GitHub, Figma. 업무 내용: 사용자 친화적이고 직관적인 웹 인터페이스를 설계 및 개발합니다. 성능 최적화와 공통 컴포넌트 라이브러리 구축을 진행합니다.",
+    "metadata": {
+      "id": "20",
+      "company": "카카올라",
+      "title": "React 프론트엔드 개발자",
+      "job_type": "프론트엔드 개발",
+      "deadline": "2026-10-15",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_20"
+  },
+  {
+    "text": "토스파이에서 풀스택 소프트웨어 엔지니어를 채용합니다. 필수 스킬은 Python, React, DB입니다. 우대 스킬: Node.js, Docker, AWS, OS. 업무 내용: 신규 금융 상품의 기획부터 프론트엔드 및 백엔드 개발, 인프라 배포까지 엔드투엔드로 주도하는 역할을 담당합니다.",
+    "metadata": {
+      "id": "21",
+      "company": "토스파이",
+      "title": "풀스택 소프트웨어 엔지니어",
+      "job_type": "풀스택 개발",
+      "deadline": "2026-09-15",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_21"
+  },
+  {
+    "text": "마이크로소프트웨어에서 C/C++ 시스템 소프트웨어 개발자를 채용합니다. 필수 스킬은 C, C++, OS, linux입니다. 우대 스킬: C#, Git, Multi-threading. 업무 내용: 리눅스 환경에서 저수준 시스템 라이브러리와 고성능 네트워크 엔진을 설계하고 최적화합니다. 운영체제 레벨의 자원 관리 업무를 담당합니다.",
+    "metadata": {
+      "id": "22",
+      "company": "마이크로소프트웨어",
+      "title": "C/C++ 시스템 소프트웨어 개발자",
+      "job_type": "시스템 개발",
+      "deadline": "2026-12-05",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_22"
+  },
+  {
+    "text": "우아한메이트에서 Node.js/Typescript 백엔드 개발자를 채용합니다. 필수 스킬은 nodejs, typescript, SQL, db입니다. 우대 스킬: AWS, Docker, NestJS. 업무 내용: 실시간 주문 및 배달 매칭 플랫폼의 고가용성 서버를 개발하고 유지보수합니다. RESTful API 설계 및 DB 성능 최적화를 진행합니다.",
+    "metadata": {
+      "id": "23",
+      "company": "우아한메이트",
+      "title": "Node.js/Typescript 백엔드 개발자",
+      "job_type": "백엔드 개발",
+      "deadline": "2026-11-20",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_23"
+  },
+  {
+    "text": "가든컬리에서 Next.js 웹 프론트엔드 엔지니어를 채용합니다. 필수 스킬은 React, typescript, git입니다. 우대 스킬: Next.js, TailwindCSS, AWS. 업무 내용: 이커머스 웹 프론트엔드 페이지의 SEO 최적화 및 SSR 환경을 구축합니다. 사용자 전환율 향상을 위한 UX 개선 작업에 참여합니다.",
+    "metadata": {
+      "id": "24",
+      "company": "가든컬리",
+      "title": "Next.js 웹 프론트엔드 엔지니어",
+      "job_type": "프론트엔드 개발",
+      "deadline": "2026-10-30",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_24"
+  },
+  {
+    "text": "업그레이드스페이스에서 LLM / RAG 솔루션 개발자를 채용합니다. 필수 스킬은 Python, 머신러닝, 딥러닝, SQL입니다. 우대 스킬: PyTorch, Docker, LangChain, VectorDB. 업무 내용: 자연어 처리 기반 LLM 모델 파인튜닝 및 RAG(검색 증강 생성) 시스템 아키텍처를 구축합니다. 프롬프트 엔지니어링 및 모델 서빙을 담당합니다.",
+    "metadata": {
+      "id": "25",
+      "company": "업그레이드스페이스",
+      "title": "LLM / RAG 솔루션 개발자",
+      "job_type": "AI/ML",
+      "deadline": "2026-09-25",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_25"
+  },
+  {
+    "text": "놀러가자에서 크로스플랫폼 모바일 앱 개발자를 채용합니다. 필수 스킬은 typescript, React Native, git입니다. 우대 스킬: Flutter, iOS, Android, CI/CD. 업무 내용: 여행 및 레저 예약 앱의 크로스플랫폼 클라이언트를 개발하고 신규 기능을 릴리즈합니다. 앱 성능 분석 및 크래시 대응을 담당합니다.",
+    "metadata": {
+      "id": "26",
+      "company": "놀러가자",
+      "title": "크로스플랫폼 모바일 앱 개발자",
+      "job_type": "모바일 개발",
+      "deadline": "2026-08-25",
+      "source": "jobs.csv"
+    },
+    "doc_id": "job_26"
+  }
+]

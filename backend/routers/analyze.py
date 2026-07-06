@@ -1,10 +1,31 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 from typing import List
+from services.rag_service import search_documents
 from services.llm_service import get_llm_response
 
 router = APIRouter()
 
+# RAG 연결 버전
+class AnalyzeRequest(BaseModel):
+    major: str
+    skills: List[str]
+    job_type: str
+
+class AnalyzeResponse(BaseModel):
+    answer: str
+    sources: List[dict]
+
+@router.post("/analyze", response_model=AnalyzeResponse, tags=["Analyze"])
+def analyze_career(request: AnalyzeRequest):
+    """RAG 기반 역량 분석: ChromaDB 검색 → Gemini 답변 → sources 반환"""
+    query = f"전공: {request.major}, 보유 스킬: {', '.join(request.skills)}, 관심 직무: {request.job_type}"
+    context_docs = search_documents(query, n_results=3)
+    result = get_llm_response(query=query, context_docs=context_docs)
+    return AnalyzeResponse(answer=result["answer"], sources=result["sources"])
+
+
+'''
 # 요청 본문(Request Body) 모델
 # 손님이 제출하는 주문서 양식
 class AnalyzeRequest(BaseModel):
@@ -37,8 +58,9 @@ def analyze_career(request: AnalyzeRequest):
         sources=result["sources"]
     )
 
-    '''
+    
     # 임시 목업 응답: 실습 8에서 실제 Gemini + RAG 응답으로 교체한다
+    # 이 부분은 원래 주석 처리
     mock_answer = (
         f"{request.major} 학생으로서 {request.job_type} 직무에 지원하려면, "
         f"현재 보유하신 {', '.join(request.skills)} 역량을 바탕으로 "
@@ -46,4 +68,5 @@ def analyze_career(request: AnalyzeRequest):
     )
     mock_sources = [ { "title": "목업 데이터 — 테크스타트업A 데이터 분석가", "content": "요구 스킬: Python, SQL, 통계" } ] 
     return AnalyzeResponse(answer=mock_answer, sources=mock_sources)
-    '''
+    
+'''
