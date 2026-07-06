@@ -242,7 +242,10 @@ def convert_to_rag_documents(df: pd.DataFrame) -> list:
             "title": str(row.get("title", "")),
             "job_type": str(row.get("job_type", "")),
             "deadline": str(row.get("deadline", "")),
-            "source": "jobs.csv"
+            "source": "jobs.csv",
+            "deadline_month": 마감월_int,
+            "is_startup": 스타트업여부_bool,
+            "first_saved_date": 최초저장일_str
         }
 
         documents.append({
