@@ -1,4 +1,5 @@
 # CLAUDE.md
+# Claude용 입구 게이트
 
 Follow the CareerFit AI project harness.
 

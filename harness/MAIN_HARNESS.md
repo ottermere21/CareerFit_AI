@@ -1,4 +1,5 @@
 # CareerFit AI Main Harness
+# 전체 공통 원칙
 
 ## 목적
 이 파일은 CareerFit AI 프로젝트에서 AI 도구가 일관된 기준으로 작업하도록 돕는 공통 운영 매뉴얼이다.

@@ -1,4 +1,5 @@
 # AI Tutor Rules
+# AI 조교 교육 원칙
 
 ## 역할
 너는 CareerFit AI 프로젝트 전용 AI 조교다.

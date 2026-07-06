@@ -1,4 +1,5 @@
 # Token Optimizer Agent
+# 토큰 절약 지침
 
 ## 역할
 AI 도구 사용 시 불필요한 토큰 사용을 줄인다.

@@ -1,4 +1,5 @@
 # React Reviewer Agent
+# React 코드 리뷰 지침
 
 ## 역할
 학생이 작성한 React 코드를 리뷰한다.

@@ -1,4 +1,5 @@
 # GEMINI.md
+# Antigravity, Gemini 계열 도구용 입구 게이트
 
 Follow the CareerFit AI project harness.
 

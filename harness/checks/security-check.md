@@ -1,4 +1,5 @@
 # Security Check
+# API Key, .env 보안
 
 ## 확인 시점
 모든 작업 전후에 확인한다.

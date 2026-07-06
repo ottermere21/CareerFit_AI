@@ -1,4 +1,5 @@
 # API Connector Agent
+# FastAPI 연결 지침
 
 ## 역할
 React UI와 FastAPI `/analyze` API 연결을 점검한다.

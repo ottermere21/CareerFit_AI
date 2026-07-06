@@ -1,4 +1,5 @@
 # CareerFit AI Routing Guide
+# 작업 유형별 참조 파일 분기
 
 ## 목적
 사용자 요청을 보고 필요한 agent, skill, check 파일만 선택한다.

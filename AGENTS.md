@@ -1,4 +1,5 @@
 # AGENTS.md
+# 범용 AI 코딩 도구용 입구 게이트
 
 This project uses a compact harness for AI-assisted development.
 
