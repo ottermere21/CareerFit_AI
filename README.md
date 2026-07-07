@@ -13,63 +13,49 @@
 
 ---------
 
+
+
 ## 🛠️ 기술 스택
 | 영역 | 기술 |
 |---|---|
-| 백엔드 | Python3.11, FastAPI |
+| 백엔드 | 	<img src="https://img.shields.io/badge/python-%233776AB.svg?&style=for-the-badge&logo=python&logoColor=white" />, <img src="https://img.shields.io/badge/fastapi-%23009688.svg?&style=for-the-badge&logo=fastapi&logoColor=white" /> |
 | AI API | Gemini 2.5 Flash-Lite |
-| 데이터 | Pandas, SQLite, ChromaDB |
-| 프론트엔드 | React, Vite, Tailwind CSS |
-| 실행 환경 | Docker |
+| 데이터 | <img src="https://img.shields.io/badge/pandas-%23150458.svg?&style=for-the-badge&logo=pandas&logoColor=white" />, <img src="https://img.shields.io/badge/sqlite-%23003B57.svg?&style=for-the-badge&logo=sqlite&logoColor=white" />, ChromaDB |
+| 프론트엔드 | <img src="https://img.shields.io/badge/react-%2361DAFB.svg?&style=for-the-badge&logo=react&logoColor=black" />, <img src="https://img.shields.io/badge/vite-%23646CFF.svg?&style=for-the-badge&logo=vite&logoColor=white" />, <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?&style=for-the-badge&logo=tailwind-css&logoColor=white" /> |
+| 실행 환경 | <img src="https://img.shields.io/badge/docker-%232496ED.svg?&style=for-the-badge&logo=docker&logoColor=white" />, <img src="https://img.shields.io/badge/render-%23000000.svg?&style=for-the-badge&logo=render&logoColor=white" /> |
 
 ---------
 
 ## 📁 Project Structure
 ```text
 CareerFit_AI/
-├── backend/            # FastAPI 기반 API 서버
-│   ├── data/           # SQLite 및 ChromaDB 벡터 데이터
-│   ├── routers/        # API 엔드포인트 정의 (health, jobs, analyze)
-│   ├── services/       # AI 비즈니스 로직 및 RAG 파이프라인
-│   ├── main.py         # 백엔드 진입점
-│   └── requirements.txt# 백엔드 의존성 설정 파일
-├── frontend/           # React/Vite 기반 사용자 인터페이스
-│   └── src/            # 프론트엔드 소스 코드
-│   │   ├── components/ # 화면 구성 컴포넌트 (InputForm, ResultCard, SourceCard)
-│   │   ├── App.jsx     # 프론트엔드 메인 로직 및 API 연동
-│   │   └── index.css   # 글로벌 스타일 및 테마 변수 정의
-│   └── tailwind.config.js # Tailwind CSS 설정
-└── docs/               # 설계 문서 및 평가 가이드라인
+├── backend/                # FastAPI 기반 API 서버
+│   ├── data/               # SQLite 및 ChromaDB 벡터 데이터
+│   ├── routers/            # API 엔드포인트 정의 (health, jobs, analyze)
+│   ├── services/           # AI 비즈니스 로직 및 RAG 파이프라인
+│   ├── main.py             # 백엔드 진입점
+│   └── requirements.txt    # 백엔드 의존성 설정 파일
+├── frontend/               # React/Vite 기반 사용자 인터페이스
+│   └── src/                # 프론트엔드 소스 코드
+│   │   ├── components/     # 화면 구성 컴포넌트 (InputForm, ResultCard, SourceCard)
+│   │   ├── App.jsx         # 프론트엔드 메인 로직 및 API 연동
+│   │   └── index.css       # 글로벌 스타일 및 테마 변수 정의
+│   └── tailwind.config.js  # Tailwind CSS 설정
+└── docs/                   # 설계 문서 및 평가 가이드라인
 ```
 
 ---------
 
 ## 🏗️ Architecture
 ```mermaid
-graph TD
-    User[사용자 웹 브라우저]
-    Frontend[프론트엔드 (Vite + React)]
-    Backend[백엔드 (FastAPI)]
-    LLM[Gemini API]
-    VectorDB[ChromaDB (Vector DB)]
-    RAG[RAG 파이프라인]
-    CoreServices[핵심 서비스]
-
-    User -- "1. 포트폴리오 분석 요청" --> Frontend
-    Frontend -- "2. API 호출 (https://careerfit-ai-d4du.onrender.com/analyze)" --> Backend
-    
-    subgraph Backend Service
-        Backend -- "인증 / 라우팅" --> CoreServices
-        CoreServices -- "3. 입력 분석 요청" --> LLM
-        CoreServices -- "4. 관련 공고 검색" --> VectorDB
-        
-        VectorDB -- "5. 벡터 검색 결과" --> RAG
-        RAG -- "6. LLM 컨텍스트 구성" --> LLM
-        LLM -- "7. 맞춤 피드백 생성" --> CoreServices
-        CoreServices -- "8. JSON 응답" --> Frontend
-    end
-
-    Frontend -- "9. 사용자 맞춤 포트폴리오 피드백" --> User
+flowchart LR
+ A[React UI\nlocalhost:5173] -->|POST /analyze| B[FastAPI\nlocalhost:8000]
+ B -->|검색| C[(ChromaDB)]
+ B -->|조회| D[(SQLite)]
+ C -->|관련 문서 3개| B
+ B -->|프롬프트 + 컨텍스트| E[Gemini API]
+ E -->|answer + sources| B
+ B -->|JSON 응답| A
 ```
 
 ------
@@ -228,12 +214,19 @@ npm run dev
 - [x] 2일차: FastAPI 서버 구축 및 Gemini API 연결
 - [x] 3일차: 데이터 파이프라인 구축
 - [x] 4일차: RAG 기반 서비스 + React UI
-- [ ] 5일차: Docker + 포트폴리오 완성
+- [x] 5일차: Docker + 포트폴리오 완성
 
 ----------
 
 ## 🔮 향후 개선
+- **웹 크롤러 기반 데이터 자동 업데이트**: 정적 CSV에 의존하지 않고 채용/공모전 플랫폼에서 주기적으로 데이터를 긁어와 DB를 갱신하는 스케줄러 도입
+- **실제 공고 페이지 연결 및 데이터 매칭**: 추천 카드 내 실제 채용 공고 원본 페이지로 이동할 수 있는 아웃링크 연결 및 유사 성향 사용자들이 보유한 스킬 시각화
+- **사용자 경험(UX) 고도화**:
+  - 분석 진행률을 알 수 있는 단계별 로딩 인디케이터(Stepped Progress Indicator)
+  - 전공 및 기술 스택 입력의 자동완성 태그 UI 및 편리한 체크박스 폼 제공
+  - 분석 결과 리포트 다운로드(PDF, Markdown 내보내기) 기능
 
+----------
 
 ## 👨‍💻 개발 과정
 
