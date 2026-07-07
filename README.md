@@ -1,6 +1,15 @@
 # CareerFit AI
 취업·공모전 데이터 기반 맞춤형 AI 포트폴리오 코치
 
+---------
+
+## 🔗 Deployment
+- 💡 Frontend: [https://careerfit-ai-frontend-j8yc.onrender.com](https://careerfit-ai-frontend-j8yc.onrender.com) (Render 배포)
+- 💡 Backend: [https://careerfit-ai-d4du.onrender.com](https://careerfit-ai-d4du.onrender.com) (Render 배포)
+- **API Documents**: [https://careerfit-ai-d4du.onrender.com/docs](https://careerfit-ai-d4du.onrender.com/docs)
+
+---------
+
 ## 📋 프로젝트 개요
 취업 공고 및 공모전 정보를 시맨틱 RAG 검색으로 분석하여 구직자의 역량과 매칭하고 맞춤형 포트폴리오 개선을 돕는 AI 코치 서비스
 
@@ -12,8 +21,6 @@
 - Mock Mode: API 한도 초과 시 MOCK_MODE=true 로 폴백 가능
 
 ---------
-
-
 
 ## 🛠️ 기술 스택
 | 영역 | 기술 |
@@ -30,18 +37,23 @@
 ```text
 CareerFit_AI/
 ├── backend/                # FastAPI 기반 API 서버
-│   ├── data/               # SQLite 및 ChromaDB 벡터 데이터
+│   ├── data/               # SQLite DB 및 학습용 CSV 원본 데이터
+│   ├── chroma_db/          # ChromaDB 벡터 데이터 (로컬 저장소, .gitignore 등록)
 │   ├── routers/            # API 엔드포인트 정의 (health, jobs, analyze)
 │   ├── services/           # AI 비즈니스 로직 및 RAG 파이프라인
 │   ├── main.py             # 백엔드 진입점
-│   └── requirements.txt    # 백엔드 의존성 설정 파일
+│   ├── requirements.txt    # 백엔드 의존성 설정 파일
+│   ├── Dockerfile          # 백엔드 도커 빌드 설정
+│   └── compose.yaml        # 백엔드 도커 컴포즈 설정
 ├── frontend/               # React/Vite 기반 사용자 인터페이스
-│   └── src/                # 프론트엔드 소스 코드
-│   │   ├── components/     # 화면 구성 컴포넌트 (InputForm, ResultCard, SourceCard)
+│   ├── src/                # 프론트엔드 소스 코드
+│   │   ├── components/     # UI 구성 요소 (InputForm, ResultCard, SourceCard)
 │   │   ├── App.jsx         # 프론트엔드 메인 로직 및 API 연동
 │   │   └── index.css       # 글로벌 스타일 및 테마 변수 정의
-│   └── tailwind.config.js  # Tailwind CSS 설정
-└── docs/                   # 설계 문서 및 평가 가이드라인
+│   ├── tailwind.config.js  # Tailwind CSS 설정
+│   ├── nginx.conf          # 프론트엔드 배포용 Nginx 설정
+│   └── Dockerfile          # 프론트엔드 도커 빌드 설정
+└── docs/                   # 설계 문서, 벤치마크 및 회고록
 ```
 
 ---------
@@ -199,13 +211,6 @@ npx tailwindcss init -p
 cd frontend
 npm run dev
 ```
-
-----------
-
-## 🔗 Deployment
-- 💡 [Frontend](https://careerfit-ai-frontend-j8yc.onrender.com) (Render 배포)
-- 💡 [Backend](https://careerfit-ai-d4du.onrender.com) (Render 배포)
-- **API Documents**: [https://careerfit-ai-d4du.onrender.com/docs](https://careerfit-ai-d4du.onrender.com/docs)
 
 ----------
 
