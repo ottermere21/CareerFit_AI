@@ -1,6 +1,6 @@
 # 1. 빌드 스테이지
-# Node.js 베이스 이미지 선택 (가벼운 Alpine Linux 버전)
-FROM node:18-alpine AS build
+# Node.js 베이스 이미지 선택 (Vite 8 요구 사양에 맞춰 Node 22 LTS 사용)
+FROM node:22-alpine AS build
 WORKDIR /app
 
 # 의존성 파일 복사 및 설치 (캐싱 최적화)

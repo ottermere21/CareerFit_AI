@@ -59,7 +59,7 @@ Vite는 빌드 시점에 `VITE_`로 시작하는 환경변수를 소스코드에
 
 프론트엔드는 **멀티 스테이지 빌드(Multi-stage Build)** 방식을 사용하여 최종 이미지 용량을 극대화하여 압축하고 보안을 강화했습니다.
 
-1. **빌드 스테이지 (`node:18-alpine`)**:
+1. **빌드 스테이지 (`node:22-alpine`)**:
    - `package.json`과 `package-lock.json`을 먼저 복사하여 `npm ci`로 신속하고 일관되게 의존성을 설치합니다.
    - `ARG VITE_API_BASE_URL` 빌드 인자를 선언하고 `ENV VITE_API_BASE_URL`로 전환하여, Vite가 빌드 시점에 알맞은 백엔드 주소를 자바스크립트 번들에 하드코딩(주입)할 수 있게 유도합니다.
    - `npm run build`를 실행해 배포용 정적 파일(`dist/` 디렉토리)을 생성합니다.
