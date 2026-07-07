@@ -17,6 +17,9 @@ body {
   padding: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  background: linear-gradient(-45deg, #eff6ff, #dbeafe, #ffffff, #e0e7ff);
+  background-size: 400% 400%;
+  @apply animate-gradient-flow;
 }
 
 /* 1단계 핵심: 파란색과 흰색이 믹스된 백그라운드 그라데이션 모션 그래픽 */
@@ -51,4 +54,92 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(99, 102, 241, 0.4);
+}
+
+/* AI Analysis Circle Loader */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background: transparent;
+}
+
+.loader-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  font-family: "Pretendard", sans-serif;
+  border-radius: 50%;
+  background-color: transparent;
+  user-select: none;
+}
+
+.loader-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: loader-combined 2.3s linear infinite;
+  z-index: 0;
+}
+
+@keyframes loader-combined {
+  0% {
+    transform: rotate(90deg);
+    box-shadow:
+      0 6px 12px 0 #38bdf8 inset,
+      0 12px 18px 0 #005dff inset,
+      0 36px 36px 0 #1e40af inset,
+      0 0 3px 1.2px rgba(56, 189, 248, 0.3),
+      0 0 6px 1.8px rgba(0, 93, 255, 0.2);
+  }
+
+  25% {
+    transform: rotate(180deg);
+    box-shadow:
+      0 6px 12px 0 #0099ff inset,
+      0 12px 18px 0 #38bdf8 inset,
+      0 36px 36px 0 #005dff inset,
+      0 0 6px 2.4px rgba(56, 189, 248, 0.3),
+      0 0 12px 3.6px rgba(0, 93, 255, 0.2),
+      0 0 18px 6px rgba(30, 64, 175, 0.15);
+  }
+
+  50% {
+    transform: rotate(270deg);
+    box-shadow:
+      0 6px 12px 0 #60a5fa inset,
+      0 12px 6px 0 #0284c7 inset,
+      0 24px 36px 0 #005dff inset,
+      0 0 3px 1.2px rgba(56, 189, 248, 0.3),
+      0 0 6px 1.8px rgba(0, 93, 255, 0.2);
+  }
+
+  75% {
+    transform: rotate(360deg);
+    box-shadow:
+      0 6px 12px 0 #3b82f6 inset,
+      0 12px 18px 0 #0ea5e9 inset,
+      0 36px 36px 0 #2563eb inset,
+      0 0 6px 2.4px rgba(56, 189, 248, 0.3),
+      0 0 12px 3.6px rgba(0, 93, 255, 0.2),
+      0 0 18px 6px rgba(30, 64, 175, 0.15);
+  }
+
+  100% {
+    transform: rotate(450deg);
+    box-shadow:
+      0 6px 12px 0 #4dc8fd inset,
+      0 12px 18px 0 #005dff inset,
+      0 36px 36px 0 #1e40af inset,
+      0 0 3px 1.2px rgba(56, 189, 248, 0.3),
+      0 0 6px 1.8px rgba(0, 93, 255, 0.2);
+  }
 }

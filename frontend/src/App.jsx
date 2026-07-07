@@ -9,11 +9,21 @@ function App() {
   const [result, setResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [progress, setProgress] = useState(0);
 
   async function handleAnalyze(formData) {
     setIsLoading(true);
     setError(null);
     setResult(null);
+    setProgress(0);
+
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 92) return prev;
+        const step = Math.floor(Math.random() * 8) + 5; // 5~12%씩 증가
+        return Math.min(prev + step, 92);
+      });
+    }, 250);
 
     try {
       const response = await fetch(`${API_BASE_URL}/analyze`, {
@@ -29,12 +39,20 @@ function App() {
       if (!response.ok) throw new Error(`서버 오류: ${response.status}`);
       const data = await response.json();
       
+      clearInterval(progressInterval);
+      setProgress(100);
+
+      // 100% 모션을 잠깐 보여주고 렌더링되게 딜레이 제공
+      await new Promise((resolve) => setTimeout(resolve, 600));
+
       setResult({
         ...data,
         userSkills: formData.skills
       });
 
     } catch (err) {
+      clearInterval(progressInterval);
+      setProgress(0);
       if (err.message.includes("Failed to fetch")) {
         setError("FastAPI 서버에 연결할 수 없습니다. 서버가 실행 중인지 확인하세요.");
       } else {
@@ -100,28 +118,20 @@ function App() {
               </div>
             )}
 
-            {/* 3. 분석 중 (Loading) 상태 - 스켈레톤 UI */}
+            {/* 3. 분석 중 (Loading) 상태 - 원형 로더 & 진행도 % */}
             {isLoading && (
-              <div className="glass-panel rounded-2xl shadow-xl shadow-slate-100/50 p-6 md:p-8 space-y-6 animate-pulse border-l-4 border-indigo-400">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-slate-200 rounded-full"></div>
-                    <div className="h-6 w-36 bg-slate-200 rounded"></div>
+              <div className="glass-panel rounded-2xl shadow-xl shadow-slate-100/50 p-8 flex flex-col items-center justify-center min-h-[380px] border border-white/40 relative overflow-hidden">
+                <div className="loader">
+                  <div className="loader-wrapper">
+                    <div className="loader-circle"></div>
+                    <span className="z-10 text-3xl font-black text-indigo-900 select-none animate-pulse">
+                      {progress}%
+                    </span>
                   </div>
-                  <div className="h-8 w-24 bg-slate-200 rounded"></div>
                 </div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-slate-200 rounded w-1/4"></div>
-                  <div className="h-24 bg-slate-200 rounded-xl"></div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="h-16 bg-slate-200 rounded-xl"></div>
-                  <div className="h-16 bg-slate-200 rounded-xl"></div>
-                </div>
-                <div className="space-y-2">
-                  <div className="h-4 bg-slate-200 rounded w-1/3"></div>
-                  <div className="h-20 bg-slate-200 rounded-xl"></div>
-                </div>
+                <p className="text-slate-500 text-xs md:text-sm font-semibold mt-6 z-10 animate-pulse">
+                  AI 코치가 데이터를 분석하여 포트폴리오를 진단 중입니다...
+                </p>
               </div>
             )}
 
