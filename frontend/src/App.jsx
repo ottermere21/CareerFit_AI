@@ -3,7 +3,7 @@ import InputForm from "./components/InputForm";
 import ResultCard from "./components/ResultCard";
 import SourceCard from "./components/SourceCard";
 
-const API_BASE = "http://localhost:8000";
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
 
 function App() {
   const [result, setResult] = useState(null);
@@ -16,7 +16,7 @@ function App() {
     setResult(null);
 
     try {
-      const response = await fetch(`${API_BASE}/analyze`, {
+      const response = await fetch(`${API_BASE_URL}/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
