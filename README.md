@@ -4,6 +4,15 @@
 ## 📋 프로젝트 개요
 취업 공고 및 공모전 정보를 시맨틱 RAG 검색으로 분석하여 구직자의 역량과 매칭하고 맞춤형 포트폴리오 개선을 돕는 AI 코치 서비스
 
+---------
+
+## ✨ 주요 기능
+- RAG 기반 역량 분석: 취업 공고 데이터를 근거로 맞춤형 조언 제공
+- 출처 표시: 어떤 공고 데이터를 참고했는지 sources로 함께 반환
+- Mock Mode: API 한도 초과 시 MOCK_MODE=true 로 폴백 가능
+
+---------
+
 ## 🛠️ 기술 스택
 | 영역 | 기술 |
 |---|---|
@@ -12,7 +21,6 @@
 | 데이터 | Pandas, SQLite, ChromaDB |
 | 프론트엔드 | React, Vite, Tailwind CSS |
 | 실행 환경 | Docker |
-
 
 ---------
 
@@ -34,6 +42,35 @@ CareerFit_AI/
 └── docs/               # 설계 문서 및 평가 가이드라인
 ```
 
+---------
+
+## 🏗️ Architecture
+```mermaid
+graph TD
+    User[사용자 웹 브라우저]
+    Frontend[프론트엔드 (Vite + React)]
+    Backend[백엔드 (FastAPI)]
+    LLM[Gemini API]
+    VectorDB[ChromaDB (Vector DB)]
+    RAG[RAG 파이프라인]
+    CoreServices[핵심 서비스]
+
+    User -- "1. 포트폴리오 분석 요청" --> Frontend
+    Frontend -- "2. API 호출 (https://careerfit-ai-d4du.onrender.com/analyze)" --> Backend
+    
+    subgraph Backend Service
+        Backend -- "인증 / 라우팅" --> CoreServices
+        CoreServices -- "3. 입력 분석 요청" --> LLM
+        CoreServices -- "4. 관련 공고 검색" --> VectorDB
+        
+        VectorDB -- "5. 벡터 검색 결과" --> RAG
+        RAG -- "6. LLM 컨텍스트 구성" --> LLM
+        LLM -- "7. 맞춤 피드백 생성" --> CoreServices
+        CoreServices -- "8. JSON 응답" --> Frontend
+    end
+
+    Frontend -- "9. 사용자 맞춤 포트폴리오 피드백" --> User
+```
 
 ------
 
@@ -49,16 +86,35 @@ CareerFit_AI/
 
 
 ------
-
-## 🚀 로컬 실행 방법
-### 0. Git Clone
+## 🚀 실행 방법
+### Git Clone
 ```bash
 git clone https://github.com/ottermere21/CareerFit_AI.git
 cd CareerFit_AI
 ```
 
-### 1. Backend Setup & 실행
-#### 1-1. **가상환경 생성 및 활성화**
+### 1️⃣ Docker 이용 실행 (권장)
+**1. Docker 설치 확인**
+Docker Desktop이 설치되어 있는지 확인합니다.
+설치되어 있지 않은 경우 [Docker Desktop](https://www.docker.com/products/docker-desktop/)에서 설치할 수 있습니다.
+```bash
+# version 26.x.x 이상이면 정상
+docker --version
+```
+
+**2. Docker Image 빌드**
+```bash
+docker build -t careerfit-ai ./backend
+```
+
+**3. Docker Container 실행**
+```bash
+docker run -p 8000:8000 --env-file backend/.env careerfit-ai
+```
+
+### 2️⃣ 로컬 실행
+#### 1. Backend Setup & 실행
+**1-1. 가상환경 생성 및 활성화**
 데이터 전처리 및 백엔드 구동을 위해 가상환경을 만들고 의존성 패키지를 먼저 설치해야 합니다.
 ```bash
 cd backend
@@ -71,19 +127,19 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-#### 1-2. **의존성 패키지 설치**
+**1-2. 의존성 패키지 설치**
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 1-3. **환경변수 설정**
+**1-3. 환경변수 설정**
 `.env.example` 파일을 복사하여 `.env` 파일을 만들고 API Key를 입력합니다.
  *주의: 보안을 위해 `.env` 파일은 절대 Git 저장소에 커밋하지 마십시오.*
 ```bash
 cp .env.example .env
 ```
 
-#### 1-4. **데이터 전처리 및 DB 빌드**
+**1-4. 데이터 전처리 및 DB 빌드**
 의존성 설치가 끝난 가상환경 상태에서 전처리 스크립트를 실행해 SQLite DB(`careerfit.db`)를 생성합니다.
 ```bash
 # MacOS
@@ -99,7 +155,7 @@ python data/preprocess.py
 | 3. 구조화 저장 | SQLite | 필터링·조회용 관계형 DB |
 | 4. 벡터 저장 | ChromaDB | 의미 기반 RAG 검색용 벡터 DB |
 
-#### 1-5. **백엔드 서버 실행**
+**1-5. 백엔드 서버 실행**
 준비가 끝나면 백엔드 서버를 실행합니다.
 
 ```bash
@@ -114,8 +170,8 @@ deactivate
 
 -------
 
-### 2. Frontend Setup & 실행
-#### 2-1. **Vite + React 프로젝트 생성**
+#### 2. Frontend Setup & 실행
+**2-1. Vite + React 프로젝트 생성**
 ```bash
 node -v   # 11버전 이상
 npm --vm  # 9버전 
@@ -135,7 +191,7 @@ Ok to proceed? (y) y
 - Which linter to use? - 'ESLint' 선택
 - Install with npm and start now? - 'yes' 선택
 
-#### 2-2. **Tailwind CSS 설치**
+**2-2. Tailwind CSS 설치**
 버전 확인 후, 다른 버전이 설치된 경우 삭제 후 다시 설치합니다.
 최적 버전: v3
 ```bash
@@ -149,7 +205,7 @@ npm install -D tailwindcss@3 postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-#### 2-3. **프론트엔드 서버 실행**
+**2-3. 프론트엔드 서버 실행**
 준비가 끝나면 프론트엔드 서버를 실행합니다.
 - 브라우저 접속 주소: http://localhost:5173
 
@@ -160,9 +216,25 @@ npm run dev
 
 ----------
 
+## 🔗 Deployment
+- 💡 [Frontend](https://careerfit-ai-frontend-j8yc.onrender.com) (Render 배포)
+- 💡 [Backend](https://careerfit-ai-d4du.onrender.com) (Render 배포)
+- **API Documents**: [https://careerfit-ai-d4du.onrender.com/docs](https://careerfit-ai-d4du.onrender.com/docs)
+
+----------
+
 ## 🎯 RoadMap
 - [x] 1일차: 프로젝트 기획 및 개발 환경 세팅
 - [x] 2일차: FastAPI 서버 구축 및 Gemini API 연결
 - [x] 3일차: 데이터 파이프라인 구축
 - [x] 4일차: RAG 기반 서비스 + React UI
 - [ ] 5일차: Docker + 포트폴리오 완성
+
+----------
+
+## 🔮 향후 개선
+
+
+## 👨‍💻 개발 과정
+
+
